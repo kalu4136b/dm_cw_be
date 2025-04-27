@@ -1,7 +1,8 @@
 package com.projectmanagement.cw_dm2_be.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.User;
+import com.projectmanagement.cw_dm2_be.Model.User;
 
 import java.util.Optional;
 

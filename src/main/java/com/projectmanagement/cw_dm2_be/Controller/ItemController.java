@@ -8,37 +8,42 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("api/Items")
-
+@RequestMapping("/api/items")  // Note: small "i" in items (common convention)
 public class ItemController {
 
     @Autowired
     private ItemService itemService;
 
+    // GET /api/items
     @GetMapping
     public List<Item> getAllItem() {
         return itemService.getAllItem();
     }
 
-    @GetMapping
-    public Optional<Item> getItemById(int id) {
+    // GET /api/items/{id}
+    @GetMapping("/{id}")
+    public Optional<Item> getItemById(@PathVariable int id) {
         return itemService.getItemById(id);
     }
 
+    // POST /api/items
     @PostMapping
     public void addItem(@RequestBody Item item) {
         itemService.addItem(item);
     }
 
-    @PutMapping
+    // PUT /api/items/{id}
+    @PutMapping("/{id}")
     public Item updateItem(@PathVariable int id, @RequestBody Item item) {
         return itemService.updateItem(id, item);
     }
 
-    @DeleteMapping
+    // DELETE /api/items/{id}
+    @DeleteMapping("/{id}")
     public void deleteItem(@PathVariable int id) {
         itemService.deleteItemById(id);
     }
-
 }
+

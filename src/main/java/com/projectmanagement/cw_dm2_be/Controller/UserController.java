@@ -1,5 +1,5 @@
 package com.projectmanagement.cw_dm2_be.Controller;
-
+/*
 import com.projectmanagement.cw_dm2_be.Repository.UserRepository;
 import com.projectmanagement.cw_dm2_be.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +30,27 @@ public class UserController {
     @PostMapping
     public User createUser(@RequestBody User user) {
         return userRepo.save(user);
+    }
+} */
+
+//package com.projectmanagement.cw_dm2_be.Controller;
+
+import com.projectmanagement.cw_dm2_be.Model.User;
+import com.projectmanagement.cw_dm2_be.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping("/register")
+    public User registerUser(@RequestBody User user) {
+        return userService.saveUser(user);
     }
 }
