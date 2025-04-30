@@ -18,6 +18,9 @@ public class ItemService {
     private ItemRepository itemRepository;
 
 
+    //get by category
+    public List<Item> getItemByCategory(String categoryName)
+    {return  itemRepository.findByCategory(categoryName); }
 
     public List<Item> getAllItem() {
         return itemRepository.findAll();

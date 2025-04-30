@@ -1,12 +1,17 @@
 package com.projectmanagement.cw_dm2_be.Controller;
 
+
+import java.util.List;
+
 import com.projectmanagement.cw_dm2_be.Model.Item;
+import com.projectmanagement.cw_dm2_be.Repository.ItemRepository;
 import com.projectmanagement.cw_dm2_be.Service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 import java.util.Optional;
+
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -15,6 +20,8 @@ public class ItemController {
 
     @Autowired
     private ItemService itemService;
+    @Autowired
+    private ItemRepository itemRepository;
 
     // GET /api/items
     @GetMapping
@@ -45,5 +52,12 @@ public class ItemController {
     public void deleteItem(@PathVariable int id) {
         itemService.deleteItemById(id);
     }
+
+    //Get items by category
+    @GetMapping("/category/{categoryName}")
+    public List<Item> getItemsByCategory(@PathVariable String categoryName) {
+        return itemRepository.findByCategory(categoryName);
+    }
+
 }
 
