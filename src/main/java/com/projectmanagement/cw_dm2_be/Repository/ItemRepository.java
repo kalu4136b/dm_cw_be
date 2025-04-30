@@ -4,9 +4,9 @@ import com.projectmanagement.cw_dm2_be.Model.Item;
 //import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
+@Repository
 public interface ItemRepository extends MongoRepository<Item, Integer> {
-    Optional<Item> findById(int Item_id);
 }

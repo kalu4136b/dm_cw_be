@@ -1,6 +1,6 @@
 package com.projectmanagement.cw_dm2_be.Model;
 
-import jakarta.persistence.Entity;
+//import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,8 +8,8 @@ import lombok.Setter;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "items")
-@Entity
+@Document(collection = "items")
+
 @Getter
 @Setter
 
