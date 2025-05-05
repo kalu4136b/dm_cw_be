@@ -41,11 +41,13 @@ public class UserController {
 
     @GetMapping("/all")
     public List<Object[]> getAllUsers() {
+
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
     public Object[] getUserById(@PathVariable int id) {
+
         return userService.getUserById(id);
     }
 }

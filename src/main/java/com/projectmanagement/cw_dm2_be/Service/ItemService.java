@@ -27,7 +27,7 @@ public class ItemService {
         return itemRepository.findById(id);
     }
 
-    //insert update delete
+
 
     public void deleteItemById(int id) {
         itemRepository.deleteById(id);
@@ -44,6 +44,8 @@ public class ItemService {
             item.setItem_id(id);
          return itemRepository.save(item);
     }
-
+    public List<Item> getItemsByItem_category(String Item_category) {
+        return itemRepository.findByCategory(Item_category);
+    }
 
 }
